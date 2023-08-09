@@ -15,6 +15,10 @@ async function bootstrap() {
     origin: true
   })
 
+  fastify.get('/', () => {
+    return { 'teste': 'testado'}
+  })
+
   fastify.get('/pools/count', async () => {
     const count = await prisma.pool.count()
     return { count }
